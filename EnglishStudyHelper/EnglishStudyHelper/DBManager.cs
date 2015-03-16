@@ -327,8 +327,6 @@ namespace EnglishStudyHelper
             ExecuteQuery("create table translates (id integer primary key autoincrement, wordRU text, idWordEn int)");
             //категории
             ExecuteQuery("create table categories (id integer primary key autoincrement, name text, isSelected int)");
-            //статистика
-            ExecuteQuery("create table statistic (id integer primary key autoincrement, date integer, trueCount int, falseCount int)");
 
         }
     }
