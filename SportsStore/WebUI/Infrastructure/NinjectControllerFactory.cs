@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Domain.Abstract;
+using Domain.Concrete;
 using Domain.Entities;
 using Moq;
 using Ninject;
@@ -24,7 +25,7 @@ namespace WebUI.Infrastructure
 
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
-            return controllerType == null ? null : (IController) ninjectKernel.Get(controllerType);
+            return controllerType == null ? null : (IController)ninjectKernel.Get(controllerType);
         }
 
         private void AddBindings()
@@ -40,7 +41,7 @@ namespace WebUI.Infrastructure
 
             }.AsQueryable());
 
-            ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
+            ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
         }
     }
 }
