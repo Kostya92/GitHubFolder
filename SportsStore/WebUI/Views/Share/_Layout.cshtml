@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css"/>
 </head>
     <body>
         <div id="header">
             <div class="title">Sports Store</div>
         </div>
         <div id="categories">
-            Will put something userful here later
+            @{Html.RenderAction("Menu","Nav");}
         </div>
         <div id="content">
             @RenderBody()
